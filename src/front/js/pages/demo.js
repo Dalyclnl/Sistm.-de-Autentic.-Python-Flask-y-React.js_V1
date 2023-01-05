@@ -1,11 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
-
+	const navigate =useNavigate();
+	//useEffect(() => {
+		//if (!store.token){
+			//navigate("/home");
+	//	}
+	//},[]);
+	
 	return (
 		<div className="container">
 			<ul className="list-group">
@@ -28,6 +34,8 @@ export const Demo = () => {
 							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
 								Change Color
 							</button>
+
+							
 						</li>
 					);
 				})}
@@ -39,3 +47,8 @@ export const Demo = () => {
 		</div>
 	);
 };
+
+
+////<button onClick={(e) => {actions.private()}}>
+							//	Prueba privada
+							// </button>
